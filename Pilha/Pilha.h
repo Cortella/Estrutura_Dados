@@ -3,38 +3,32 @@
 
 #include <iostream>
 
+using namespace std;
+
 class Pilha{
+    private:
+    int *vet_;
+    int max_tam_;
+    int topo_;
+
     public:
-    //Cria pilha
+    //Cria pilha vazia com 100 posicoes
     Pilha();
 
-    //insere elemento no topo
-    void Empilhar(double k);
+    //Empilhar
+    void push(int e);
 
-    //Remove elemento do topo
-    //Pre-condicao pilha nao pode estar vazia
-    void Desempilhar();
+    //Desempilhar
+    void pop();
 
-    //Testa se a pilha nao esta vazia
-    bool Vazia();
+    //retorna o valor no topo
+    int getTopo();
 
-    //Retorna o elemento do topo da pilha
-    //pre-condição:Pilha nao-vazia
-    double Topo();
+    //verifica se pilha esta vazia
+    bool vazia();
 
-    //testa se a pilha corrente é igual a x
-    bool operator==(Pilha& x);
-
-    //SObrescreve todos os elementos da pilha corrente por aqueles em x
-    void operator=(Pilha& x);
-
-    //destrutor
+    //Libera memoria alocada
     ~Pilha();
-    
-    private:
-    double *elementos_;
-    int tamanho_;
-    
-};
+}
 
 #endif

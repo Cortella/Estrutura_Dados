@@ -1,61 +1,37 @@
-#include <iostream>
 #include "Pilha.h"
 
+using namespace std;
 
 Pilha::Pilha(){
-    tamanho_ = 0;
-    elementos_ = new double[tamanho_+1];
+    vet_ = new int[100];
+    max_tam_ = 99;
+    topo_ = -1;
 }
 
-void Pilha::Empilhar(double k){
-    this->elementos_[tamanho_] = k;
-    tamanho_++;
-}
-
-void Pilha::Desempilhar(){
-    if(this->Vazia()){
-        std::cout << "stack overflow" <<std::endl;
+void Pilha::push(int e){
+    if(topo == max_tam_){
+      cout<< "Pilha cheia"  
     }else{
-        this->~Pilha();
-        tamanho_--;
+        vet_[topo_+1] = e;
+        topo_++;
     }
 }
 
-bool Pilha::Vazia(){
-    if(this->tamanho_==0) {
-        return true;
+void Pilha::pop(){
+    if(topo_ == -1){
+        cout<<"Pilha vazia!! ";
     }else{
-        return false;
+        topo_--;
     }
+
+int Pilha::getTopo(){
+    return vet_[topo_];
 }
 
-void Pilha::Realocar(){
-    
+bool Pilha::vazia(){
+    return(topo_ == -1);
 }
-
-bool Pilha::operator==(Pilha& x){
-    if(this->tamanho_ != x.tamanho_){
-        return false;
-    }
-    for(int i=0;i<x.tamanho_;i++){
-        if(this->elementos_[i] != x.elementos_[i]){
-            return false;
-        }
-    }
-return true;
 }
-
-void Pilha::operator=(Pilha& x){
-
-}
-
-double Pilha::Topo(){
-    return this->elementos_[this->tamanho_];
-}
-
-
-
 Pilha::~Pilha(){
-    delete[tamanho_] elementos_;
+    delete[] vet;
 }
-
