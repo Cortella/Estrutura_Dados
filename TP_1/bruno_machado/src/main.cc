@@ -5,6 +5,8 @@ int main() {
   int q;
   char e;
   while(scanf("%d %c", &q, &e) != EOF) {
+    ListaEntrada * l = new ListaEntrada();
+    l->insert(q,e);
     if (e == 'p')
       // veja que a funcao bar() sempre retorna 1, entao o programa sempre
       // vai imprimir 1.

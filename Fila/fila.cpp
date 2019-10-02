@@ -52,7 +52,7 @@ struct No {
 		fim_->dir =segundo;
 		segundo->esq = fim_;
 		delete primeiro;
-		tamanho_--;
+		this->tamanho_--;
 		
 	}
 
