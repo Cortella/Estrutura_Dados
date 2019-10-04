@@ -1,5 +1,5 @@
-#ifndef LISTA_RECIPIENTES_H
-#define LISTA_RECIPIENTES_H
+#ifndef LISTA_MEDICOES_H
+#define LISTA_MEDICOES_H
 
 
 #include <cstddef>
@@ -9,7 +9,7 @@ using namespace std;
 
 struct No;
 
-class ListaRecipientes
+class ListMedicoes
 {
 public:
 
@@ -30,6 +30,9 @@ public:
 
 	//Imprime os elementos da lista
 	void imprimir();
+
+	//retira elementos repetidos
+	void retirarRepetidos();
 
 	//Desaloca memoria alocada para a lista
 	~ListaRecipientes();

@@ -16,6 +16,7 @@ int main() {
 	l->inserir(25);
 	l->inserir(2050);
 	l->imprimir();
+	l->existe(50) 
 	system("pause");
 	return 0;
 }

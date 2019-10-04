@@ -1,4 +1,4 @@
-#include "ListaRecipientes.h"
+#include "ListaMedicoes.h"
 
 
 struct No {
@@ -17,13 +17,13 @@ struct No {
 };
 
 
-ListaRecipientes::ListaRecipientes()
+ListaMedicoes::ListaMedicoes()
 {
 	size_ = 0;
 	fim_ = new No();
 }
 
-void ListaRecipientes::inserir(int r)
+void ListaMedicoes::inserir(int r)
 {
 	if (this->size_ == 0) {
 		No* x = new No();
@@ -46,7 +46,7 @@ void ListaRecipientes::inserir(int r)
 	
 }
 
-bool ListaRecipientes::existe(int r)
+bool ListaMedicoes::existe(int r)
 {
 	if (Pesquisar(r) == nullptr) {
 		return false;
@@ -56,33 +56,37 @@ bool ListaRecipientes::existe(int r)
 	}
 }
 
-int ListaRecipientes::getSize()
+int ListaMedicoes::getSize()
 {
 	return size_;
 }
 
-void ListaRecipientes::imprimir()
+void ListaMedicoes::imprimir()
 {
 	for (No* i = fim_->dir; i != fim_; i = i->dir) {
 		cout << i->valor << " | ";
 	}
 }
 
-void ListaRecipientes::inserirInicio(int r)
+void ListaMedicoes::retirarRepetidos()
+{
+}
+
+void ListaMedicoes::inserirInicio(int r)
 {
 	No* primeiro = fim_->dir;
 	fim_->dir = primeiro->esq = new No(r, fim_, primeiro);
 	size_++;
 }
 
-void ListaRecipientes::inserirFinal(int r)
+void ListaMedicoes::inserirFinal(int r)
 {
 	No* ultimo = fim_->esq;
 	fim_->esq = ultimo->dir = new No(r, ultimo, fim_);
 	size_++;
 }
 
-No* ListaRecipientes::Pesquisar(int r)
+No* ListaMedicoes::Pesquisar(int r)
 {
 	for (No* i = fim_->dir; i != fim_; i = i->dir) {
 		if (i->valor == r) {

@@ -151,13 +151,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FIlaOutput.cpp" />
-    <ClCompile Include="ListaRecipientes.cpp" />
+    <ClCompile Include="ListaMedicoes.cpp" />
+    <ClCompile Include="ListaVolumes.cpp" />
     <ClCompile Include="TP.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FIlaOutput.h" />
-    <ClInclude Include="ListaRecipientes.h" />
+    <ClInclude Include="ListaMedicoes.h" />
+    <ClInclude Include="ListaVolumes.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TP.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
