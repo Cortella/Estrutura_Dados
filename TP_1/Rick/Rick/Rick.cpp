@@ -15,13 +15,12 @@ int main() {
 	medicoes->inserir(550);
 	medicoes->imprimir();
 
-	cout << "" << endl;
-
-	medicoes->limparLista();
 	medicoes->inserir(1550);
-	medicoes->imprimir();
+	
 
 	cout << "" << endl;
+	x->preencherLista(medicoes);
+	x->imprimir();
 	medicoes->~ListaMedicoes();
 	
 	system("pause");

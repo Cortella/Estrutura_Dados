@@ -57,10 +57,13 @@ void ListaOperacoes::preencherLista(ListaMedicoes* volumes)
 			for (k->dir; k != anterior->getSentinela(); k = k->dir) {
 				int atual = k->valor;
 				int resultado1 = atual + positivo;
-				if ((resultado1 > 0) && ()) {
-
+				if ((resultado1 > 0) && (!existe(resultado1))) {
+					inserir(resultado1,i);
 				}
-				int resultado2 = atual + negativo
+				int resultado2 = atual + negativo;
+				if ((resultado1 > 0) && (!existe(resultado1))) {
+						inserir(resultado2, i);
+				}
 			}
 		}
 	}
@@ -74,7 +77,7 @@ void ListaOperacoes::limparLista()
 	}
 }
 
-ListaMedicoes ListaOperacoes::getSubLista(int op)
+ListaMedicoes *ListaOperacoes::getSubLista(int op)
 {
 	ListaMedicoes* aux = new ListaMedicoes();
 	for (Apontador *i = fim_->dir; i != fim_; i = i->dir) {
@@ -87,7 +90,7 @@ ListaMedicoes ListaOperacoes::getSubLista(int op)
 			}
 		}
 	}
-	return *aux;
+	return aux;
 }
 
 void ListaOperacoes::imprimir()
