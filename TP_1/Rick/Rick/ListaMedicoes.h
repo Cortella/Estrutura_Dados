@@ -17,6 +17,7 @@ public:
 	//Cria lista de recipientes identica a passada por paramentro
 	ListaMedicoes(const ListaMedicoes& l);
 
+
 	//Retorna o sentilena da lista
 	No* getSentinela();
 

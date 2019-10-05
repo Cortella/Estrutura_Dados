@@ -1,9 +1,5 @@
 #pragma once
-
-#include <string>
 #include "ListaMedicoes.h"
-
-using std::string;
 
 struct Apontador;
 struct  No;

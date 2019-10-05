@@ -37,9 +37,13 @@ ListaOperacoes::ListaOperacoes()
 	fim_ = new Apontador();
 	fim_->esq = fim_->dir = fim_;
 	size_ = 0;
-	Apontador* aux = fim_->dir;
-	fim_->dir = aux->esq = new Apontador(0, 0, fim_, aux);
+	Apontador* zero = fim_->dir;
+	fim_->dir = zero = new Apontador(0, 0, fim_, fim_);
 	size_++;
+	inserir(50,1);
+	inserir(250,1);
+	inserir(230,2);
+	inserir(295,2);
 	
 }
 
@@ -57,11 +61,11 @@ void ListaOperacoes::preencherLista(ListaMedicoes* volumes)
 			for (k->dir; k != anterior->getSentinela(); k = k->dir) {
 				int atual = k->valor;
 				int resultado1 = atual + positivo;
-				if ((resultado1 > 0) && (!existe(resultado1))) {
+				if ((resultado1 >= 0) && (!existe(resultado1))) {
 					inserir(resultado1,i);
 				}
 				int resultado2 = atual + negativo;
-				if ((resultado1 > 0) && (!existe(resultado1))) {
+				if ((resultado1 >= 0) && (!existe(resultado1))) {
 						inserir(resultado2, i);
 				}
 			}
@@ -84,13 +88,11 @@ ListaMedicoes *ListaOperacoes::getSubLista(int op)
 		if (i->operacoes == op) {
 			aux->inserir(i->valor);
 		}
-		else {
-			if (i->operacoes > op) {
-				break;
-			}
+		if (i->operacoes > op) {
+			break;
 		}
 	}
-	return aux;
+return aux;
 }
 
 void ListaOperacoes::imprimir()
