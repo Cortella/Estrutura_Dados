@@ -13,6 +13,8 @@ public:
 
 	//Cria lista de recipientes vazia
 	ListaMedicoes();
+	//Cria lista de recipientes identica a passada por paramentro
+	ListaMedicoes(const ListaMedicoes& l);
 
 	//Insere um novo recipiente na lista
 	void inserir(int r);

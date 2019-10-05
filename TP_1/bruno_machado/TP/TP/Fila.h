@@ -3,33 +3,36 @@
 #include <string>
 #include <iostream>
 
-using std::string;
 using std::cout;
+using std::endl;
 
 struct No;
 
-class Fila
-{
+class Fila {
 public:
-
-	//Cria Fila Vazia
+	// Cria uma fila vazia.
 	Fila();
 
-	//Retorna o tamanho da fila
-	int getSize_();
+	// Insere um elemento no fim da fila.
+	void inserir(int s);
 
-	//Insere um novos elementos na fila
-	void enfileirar(string r);
-
-	//Retira elemento da primeira posicao da fila
-	void retirar();
-
-	//Busca elemento existente na fila
-	bool existe(string r);
+	// Desaloca a memória alocada para a fila.
+	~Fila();
 
 private:
-	int size_;
-	No* fim_;
+	No* fim_;  // Ponteiro para o sentinela da lista encadeada.
+	int tamanho_;  // Número de elementos na fila;
+
+	// Retorna o primeiro elemento da fila.
+	// PRECONDIÇÃO: A fila não pode estar vazia.
+	int primeiro() const;
+
+	// Retira o primeiro elemento da fila.
+	// PRECONDIÇÃO: A fila não pode estar vazia.
+	void RemoverPrimeiro();
+
+	// Testa se a fila está vazia.
+	bool vazia() const;
 
 };
 

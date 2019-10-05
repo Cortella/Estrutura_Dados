@@ -23,6 +23,11 @@ ListaMedicoes::ListaMedicoes()
 	fim_->esq = fim_->dir = fim_;
 }
 
+ListaMedicoes::ListaMedicoes(const ListaMedicoes& l) : ListaMedicoes()
+{
+	*this = l;
+}
+
 void ListaMedicoes::inserir(int r)
 {
 	No* aux;

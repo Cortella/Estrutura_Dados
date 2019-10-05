@@ -13,15 +13,18 @@ public:
 	//Cria Lista de Volumes
 	ListaVolumes();
 
-	//Cria lista de volumes a partir de uma lista de recipientes existente
-	ListaVolumes(ListaMedicoes* r);
-
 	//Adiciona recipiente e cria combinaco es
-	//Limitacao : Calcula ate 15 operacoes
+	//Limitacao : Calcula ate 10 operacoes
 	void adicionar(int r);
 private:
-	ListaMedicoes *recipientes_;
+	ListaMedicoes *op_;
 	Apontador* fim_;
 	int size_;
+
+	//verifica se lista esta vazia
+	bool vazia();
+	//verifica se um elemento esta na lista
+	
+	
 };
 

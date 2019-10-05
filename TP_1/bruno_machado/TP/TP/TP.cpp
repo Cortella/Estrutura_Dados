@@ -3,20 +3,17 @@
 
 #include <cstdio> // em C substituir por #include <stdio.h>
 #include "ListaMedicoes.h"
-#include <stdlib.h>
 #include "Fila.h"
+#include <stdlib.h>
 
-void adicionar(ListaMedicoes* recipientes, ListaMedicoes* volumes,int valor) {
-	recipientes->inserir(valor);
-	if (volumes->vazia()) {
-		volumes->inserir(valor);
-	}
-}
+
 int main() {
 
-	ListaMedicoes* recipientes = new ListaMedicoes();
-	ListaMedicoes* volumes = new ListaMedicoes();
-	
+	ListaMedicoes* x = new ListaMedicoes();
+	x->inserir(50);
+	x->inserir(250);
+	x->insereNegativos();
+	x->imprimir();
 
 	system("pause");
 	return 0;

@@ -1,34 +1,61 @@
-#include "Fila.h"
+
+#include "fila.h"
+
+using std::string;
 
 struct No {
-	string valor;
-	No* dir;
+	int valor;
 	No* esq;
+	No* dir;
 	No() {
-		valor = "";
-		esq=dir = nullptr;
+		valor = NULL;
+		esq = dir = nullptr;
 	}
-	No(string v, No* d) {
+	No(int v, No* e, No* d) {
 		valor = v;
+		esq = e;
 		dir = d;
 	}
 };
 
-Fila::Fila()
-{
-	size_ = 0;
+Fila::Fila() {
+	tamanho_ = 0;
 	fim_ = new No();
+	fim_->esq = fim_->dir = fim_;
 }
 
-int Fila::getSize_()
-{
-	return size_;
+void Fila::inserir(int r) {
+	No* ultimo = fim_->esq;
+	fim_->esq = ultimo->dir = new No(r, ultimo, fim_);
+	tamanho_++;
 }
 
-void Fila::enfileirar(string r)
-{
-	if (this->size_ == 0) {
-		No* primeiro = fim_->dir;
-		primeiro
+
+Fila::~Fila() {
+	//imprime primeiro da fila
+	cout << this->primeiro() <<endl;
+	// Apaga todos os elementos de *this.
+	while (!vazia()) {
+		RemoverPrimeiro();
 	}
+	// Libera a memória do sentinela.
+	delete fim_;
+}
+
+void Fila::RemoverPrimeiro() {
+	No* primeiro = fim_->dir;
+	No* segundo = primeiro->dir;
+	fim_->dir = segundo;
+	segundo->esq = fim_;
+	delete primeiro;
+	tamanho_--;
+}
+
+bool Fila::vazia() const {
+	return (tamanho_ == 0);
+}
+
+
+int Fila::primeiro() const {
+	return fim_->dir->valor;
 }
