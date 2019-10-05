@@ -28,6 +28,11 @@ ListaMedicoes::ListaMedicoes(const ListaMedicoes& l) : ListaMedicoes()
 	*this = l;
 }
 
+No* ListaMedicoes::getSentinela()
+{
+	return fim_;;
+}
+
 void ListaMedicoes::inserir(int r)
 {
 	No* aux;

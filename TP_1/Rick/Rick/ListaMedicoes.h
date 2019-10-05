@@ -13,8 +13,12 @@ public:
 
 	//Cria lista de recipientes vazia
 	ListaMedicoes();
+
 	//Cria lista de recipientes identica a passada por paramentro
 	ListaMedicoes(const ListaMedicoes& l);
+
+	//Retorna o sentilena da lista
+	No* getSentinela();
 
 	//Insere um novo recipiente na lista
 	void inserir(int r);
