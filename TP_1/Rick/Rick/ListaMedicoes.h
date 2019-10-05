@@ -26,6 +26,9 @@ public:
 	//Retira recipiente especifico
 	void retirar(int r);
 
+	//Limpa lista com excecao do sentinela
+	void limparLista();
+
 	//Verifica se elementos existe na lista
 	bool existe(int r);
 

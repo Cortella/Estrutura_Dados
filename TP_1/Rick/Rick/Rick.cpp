@@ -1,28 +1,29 @@
 #include <iostream>
 #include <stdlib.h>
 #include "ListaOperacoes.h"
+#include "ListaMedicoes.h"
 using namespace std;
 
-struct No {
-	int valor;
-	No* esq;
-	No* dir;
-	No() {
-		valor = NULL;
-		esq = dir = nullptr;
-	}
-	No(int v, No* e, No* d) {
-		valor = v;
-		esq = e;
-		dir = d;
-	}
-};
 
 int main() {
 
 	ListaOperacoes* x = new ListaOperacoes();
-	x->imprimir();
-	x->~ListaOperacoes();
+	ListaMedicoes* medicoes = new ListaMedicoes();
+	medicoes->inserir(50);
+	medicoes->inserir(250);
+	medicoes->inserir(150);
+	medicoes->inserir(550);
+	medicoes->imprimir();
+
+	cout << "" << endl;
+
+	medicoes->limparLista();
+	medicoes->inserir(1550);
+	medicoes->imprimir();
+
+	cout << "" << endl;
+	medicoes->~ListaMedicoes();
+	
 	system("pause");
 	return 0;
 }

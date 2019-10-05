@@ -74,6 +74,13 @@ void ListaMedicoes::retirar(int r)
 	}
 }
 
+void ListaMedicoes::limparLista()
+{
+	while (!vazia()) {
+		removerPrimeiro();
+	}
+}
+
 bool ListaMedicoes::existe(int r)
 {
 	if (Pesquisar(r) == nullptr) {
@@ -104,9 +111,7 @@ bool ListaMedicoes::vazia()
 ListaMedicoes::~ListaMedicoes()
 {
 	// Apaga todos os elementos de *this.
-	while (!vazia()) {
-		removerPrimeiro();
-	}
+	limparLista();
 	// Libera a memória do sentinela.
 	delete fim_;
 }
