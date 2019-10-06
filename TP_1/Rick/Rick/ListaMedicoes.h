@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LISTA_MEDICOES_H
+#define LISTA_MEDICOES_H
 
 #include <cstddef>
 #include <iostream>
@@ -63,3 +64,4 @@ private:
 	No* Pesquisar(int e);
 };
 
+#endif

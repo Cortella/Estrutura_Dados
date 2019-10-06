@@ -1,4 +1,6 @@
-#pragma once
+#ifndef LISTA_OPERACOES_H
+#define LISTA_OPERACOES_H
+
 #include "ListaMedicoes.h"
 
 struct Apontador;
@@ -23,8 +25,14 @@ public:
 	//Imprime a lista
 	void imprimir();
 
-	//insere elemnto no fim da lista
+	//insere elemento no fim da lista
 	void inserir(int combinicao, int op);
+
+	//cria primeiro combinacao
+	void primeiraCombinacao(ListaMedicoes* list);
+
+	//Busca elemento na lista
+	int consultarOp(int r);
 
 	//Desaloca memoria da lista
 	~ListaOperacoes();
@@ -41,5 +49,7 @@ private:
 	//Verifica se elemento esta na lista
 	bool existe(int e);
 
+	
 };
 
+#endif

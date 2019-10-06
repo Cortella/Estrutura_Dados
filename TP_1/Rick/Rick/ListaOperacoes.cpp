@@ -22,11 +22,12 @@ struct Apontador {
 	Apontador* dir;
 	Apontador() {
 		valor = NULL;
+		operacoes = NULL;
 		esq = dir = nullptr;
 	}
 	Apontador(int v, int o, Apontador* e, Apontador* d) {
 		valor = v;
-		operacoes = 0;
+		operacoes = o;
 		esq = e;
 		dir = d;
 	}
@@ -37,27 +38,23 @@ ListaOperacoes::ListaOperacoes()
 	fim_ = new Apontador();
 	fim_->esq = fim_->dir = fim_;
 	size_ = 0;
+	medidas_ = new ListaMedicoes();
 	Apontador* zero = fim_->dir;
 	fim_->dir = zero = new Apontador(0, 0, fim_, fim_);
 	size_++;
-	inserir(50,1);
-	inserir(250,1);
-	inserir(230,2);
-	inserir(295,2);
-	
 }
 
 void ListaOperacoes::preencherLista(ListaMedicoes* volumes)
 {
 	No* aux = volumes->getSentinela();
-	ListaMedicoes* anterior;
-	for (int i = 1; i <= 15; i++) {
+	ListaMedicoes* anterior = new ListaMedicoes();
+	for (int i = 2; i <= 15; i++) {
 		anterior = this->getSubLista(i-1);
 		No* j = volumes->getSentinela();
 		for (j->dir ; j != volumes->getSentinela(); j = j->dir) {
 			int positivo = j->valor;
 			int negativo = -(j->valor);
-			No* k = anterior->getSentinela();
+			No* k	= anterior->getSentinela();
 			for (k->dir; k != anterior->getSentinela(); k = k->dir) {
 				int atual = k->valor;
 				int resultado1 = atual + positivo;
@@ -65,7 +62,7 @@ void ListaOperacoes::preencherLista(ListaMedicoes* volumes)
 					inserir(resultado1,i);
 				}
 				int resultado2 = atual + negativo;
-				if ((resultado1 >= 0) && (!existe(resultado1))) {
+				if ((resultado2 >= 0) && (!existe(resultado2))) {
 						inserir(resultado2, i);
 				}
 			}
@@ -107,6 +104,24 @@ void ListaOperacoes::inserir(int combinacao, int op)
 	Apontador* ultimo = fim_->esq;
 	fim_->esq = ultimo->dir = new Apontador(combinacao,op, ultimo, fim_);
 	size_++;
+}
+
+void ListaOperacoes::primeiraCombinacao(ListaMedicoes *list)
+{
+	No* aux = list->getSentinela();
+	for (aux->dir; aux != list->getSentinela(); aux = aux->dir) {
+		inserir(aux->valor,1);
+	}
+}
+
+int ListaOperacoes::consultarOp(int r)
+{
+	for (Apontador* i = fim_->dir; i != fim_; i = i->dir) {
+		if (r == i->valor) {
+			return i->operacoes;
+		}
+	}
+	return-1;
 }
 
 ListaOperacoes::~ListaOperacoes()
